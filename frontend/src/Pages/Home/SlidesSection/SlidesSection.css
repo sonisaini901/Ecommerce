@@ -1,0 +1,95 @@
+.slides_section {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+.slides_section_item {
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    height: 480px;
+    text-decoration: none;
+}
+.slides_section_content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    color: var(--color-background);
+    text-transform: uppercase;
+}
+.slides_section_content.white {
+    color: var(--color-white);
+}
+.slides_section_content .slides_section_heading {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+.slides_section_content .slides_Section_text {
+    font-size: 24px;
+    line-height: 1.1;
+}
+.slides_section_content .slides_item_btn {
+    display: inline-flex;
+    white-space: normal;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    color: var(--color-white);
+    background-color: var(--color-background);
+    border: 1px solid var(--color-background) !important;
+    border-radius: 0px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 1.5rem;
+}
+.slides_section_content .slides_item_btn:hover {
+    background-color: var(--color-lightblack);
+    border-color: var(--color-lightblack) !important;
+}
+.slides_section_content.white .slides_item_btn {
+    color: var(--color-background);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-white) !important;
+}
+.slides_section_content.white .slides_item_btn:hover {
+    background-color: var(--color-text);
+    border-color: var(--color-text) !important;
+}
+@media (max-width: 1199px) {
+   .slides_section_content .slides_section_heading {
+        font-size: 32px;
+    } 
+    .slides_section_content .slides_Section_text {
+        font-size: 20px;
+    }
+}
+@media (max-width: 991px) {
+    .slides_section_item {
+        height: 400px;
+    }
+}
+@media (max-width: 767px) {
+    .slides_section_content .slides_section_heading {
+        font-size: 24px;
+    } 
+    .slides_section_item {
+        height: 350px;
+    }
+    .slides_section_content .slides_Section_text {
+        font-size: 18px;
+    }
+    .slides_section_content {
+        padding: 2rem 1rem;
+    }
+}
+@media (max-width: 380px) {
+    .slides_section_item {
+        height: 300px;
+    }
+}

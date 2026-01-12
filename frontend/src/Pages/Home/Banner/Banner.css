@@ -1,0 +1,113 @@
+.home_banner_main {
+    position: relative;
+}
+.home_banner_main .home_banner_div {
+    aspect-ratio: 6000 / 2167;
+}
+.home_banner_div .home_banner_desktop,
+.home_banner_div .home_banner_mobile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+}
+.home_banner_div .home_banner_mobile {
+    display: none;
+}
+.home_banner_content {
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    align-items: flex-end;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    color: var(--color-white);
+}
+.home_banner_content h1 {
+    font-size: 40px;
+    line-height: 1.1;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+}
+.home_banner_content .home_banner_text {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0.5rem 0 0;
+    text-transform: uppercase;
+}
+.home_banner_content .banner_btn_block {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+    gap: 1rem;
+}
+.banner_btn_block .banner_btn {
+    display: flex;
+    padding: 0.5rem 1.25rem;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-white);
+    border: none;
+    color: var(--color-background);
+    border-radius: 0;
+}
+.banner_btn_block .banner_btn:hover {
+    background-color: rgba(223,224,225,1);
+}
+@media (max-width: 1023px) {
+    .home_banner_content h1 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+    .home_banner_content .home_banner_text {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    .home_banner_content {
+        padding: 1.5rem;
+    }
+}
+@media (max-width: 540px) {
+    .home_banner_main .container {
+        padding: 0;
+    }
+    .home_banner_main .home_banner_div {
+        aspect-ratio: unset;
+    }
+    .home_banner_div .home_banner_mobile {
+        display: block;
+        position: relative;
+        object-position: center;
+    }
+    .home_banner_div .home_banner_desktop {
+        display: none;
+    }
+    .home_banner_content {
+        position: relative;
+        align-items: center;
+        color: var(--color-background);
+    }
+    .home_banner_content h1 {
+        font-size: 24px;
+        line-height: 1.3;
+    }
+    .home_banner_content .home_banner_text {
+        font-size: 12px;
+        line-height: 1.3;
+    }
+}
