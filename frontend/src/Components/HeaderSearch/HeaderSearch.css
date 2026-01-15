@@ -21,24 +21,24 @@
     width: 40px;
     height: 40px;
 }
-.search_modal_header form {
+.search_modal_header .search_form_block {
     width: 100%;
 }
-.search_modal_header form .input-group {
+.search_form_block .input-group {
     border-radius: 0.125rem;
     border: 1px solid #676d75;
 }
-.search_modal_header form .input-group input {
+.search_form_block .input-group input {
     border: none;
     padding: 1rem;
     color: var(--color-background);
     background-color: var(--color-white);
     box-shadow: unset !important;
 }
-.search_modal_header form .input-group input::placeholder {
+.search_form_block .input-group input::placeholder {
     text-transform: uppercase;
 }
-.search_modal_header #search_submit {
+.search_form_block #search_submit {
     background-color: transparent;
     color: var(--color-background);
     border-radius: 0;

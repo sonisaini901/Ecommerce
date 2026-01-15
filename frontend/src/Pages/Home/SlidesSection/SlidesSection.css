@@ -80,6 +80,7 @@
     } 
     .slides_section_item {
         height: 350px;
+        background-attachment: inherit;
     }
     .slides_section_content .slides_Section_text {
         font-size: 18px;
@@ -87,6 +88,7 @@
     .slides_section_content {
         padding: 2rem 1rem;
     }
+
 }
 @media (max-width: 380px) {
     .slides_section_item {

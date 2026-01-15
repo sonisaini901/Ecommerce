@@ -1,4 +1,4 @@
-import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Button, Container, Dropdown, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import "./Header.css";
 import HeaderTop from "./HeaderTop";
 import { useEffect, useState } from "react";
@@ -1521,9 +1521,24 @@ const Header = () => {
                         <Button className="header_btn_icon">
                             <RiShoppingCartLine />
                         </Button>
-                        <Button className="header_btn_icon">
-                            <FaRegUser />
-                        </Button>
+                        <Dropdown className="dropdown_users_block">
+                            <Dropdown.Toggle className="header_btn_icon" id="dropdown_users">
+                                <FaRegUser />
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu>
+                                <div className="users_dropdown_lists">
+                                    <Dropdown.Item href="/">My Account</Dropdown.Item>
+                                    <Dropdown.Item href="/">Wishlist</Dropdown.Item>
+                                    <Dropdown.Item href="/">Check Order/Initiate Return</Dropdown.Item>
+                                </div>
+                                <div className="mobile_btns">
+                                    <Button className="mobile_btn_nav black">Login</Button>
+                                    <Button className="mobile_btn_nav">Join Us</Button>
+                                </div>
+                            </Dropdown.Menu>
+                            
+                        </Dropdown>
                     </div>
                 </Container>
             </Navbar>

@@ -78,7 +78,7 @@ const HeaderSearch = ({show, onClose}) => {
         >
             <Modal.Header>
                 <Container>
-                    <Form onSubmit={handleSearchSubmit} method="post">
+                    <Form className="search_form_block" onSubmit={handleSearchSubmit} method="post">
                         <InputGroup>
                             <Form.Control
                                 type="test"

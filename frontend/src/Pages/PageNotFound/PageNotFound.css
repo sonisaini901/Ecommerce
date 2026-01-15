@@ -1,0 +1,52 @@
+.page_not_found_main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+.page_not_found_block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+.main_heading.large {
+    font-size: 32px;
+}
+.page_not_found_main .main_heading.large {
+    text-align: center;
+}
+.page_not_found_block .search_form_block {
+    max-width: 512px;
+    width: 100%;
+}
+.trending_categories_lists {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 640px;
+    gap: 1rem;
+    justify-content: center;
+}
+.trending_categories_lists .categories_link {
+    text-decoration: none;
+    display: flex;
+    padding: 0.5rem 1.25rem;
+    white-space: normal;
+    border-width: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-background);
+    border-color: var(--color-background);
+    color: var(--color-white);
+}
+.trending_categories_lists .categories_link:hover {
+    opacity: 0.8;
+}
+@media (max-width: 767px) {
+    .main_heading.large {
+        font-size: 28px;
+    }
+}
