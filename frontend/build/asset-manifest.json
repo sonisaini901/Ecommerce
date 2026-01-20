@@ -1,24 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.842fbe07.css",
-    "main.js": "/static/js/main.8e2780eb.js",
+    "main.css": "/static/css/main.f9baa952.css",
+    "main.js": "/static/js/main.004d8cdc.js",
     "static/js/453.03346f77.chunk.js": "/static/js/453.03346f77.chunk.js",
     "static/media/travel_style.webp": "/static/media/travel_style.5bc065114cc2ff967324.webp",
     "static/media/running_store.webp": "/static/media/running_store.28698f43903d9c73acbc.webp",
     "static/media/Lookbook3.webp": "/static/media/Lookbook3.cc2c94c59f8375d2a4d5.webp",
     "static/media/Galaxis-Pro-Men's-Performance-Boost-Running-Shoes.webp": "/static/media/Galaxis-Pro-Men's-Performance-Boost-Running-Shoes.9a08ec500c4ff8636e6c.webp",
+    "static/media/categories_bg.webp": "/static/media/categories_bg.f4b6cddf1deced6e51ea.webp",
     "static/media/Blktop-Rider-Suede-Sneakers.webp": "/static/media/Blktop-Rider-Suede-Sneakers.c667bb040212937d9dfd.webp",
     "static/media/sneakers.webp": "/static/media/sneakers.5784a7f7b1786d465b5a.webp",
+    "static/media/MagMax-Shoes.webp": "/static/media/MagMax-Shoes.807bf71a66dcdd3d789d.webp",
     "static/media/running.webp": "/static/media/running.a601627de5f67db7d86e.webp",
     "static/media/banner-desktop.webp": "/static/media/banner-desktop.ebab2f274613ad233b43.webp",
     "static/media/FusionPro-Lightweight-Cushioned-Men's-Running-Shoes.webp": "/static/media/FusionPro-Lightweight-Cushioned-Men's-Running-Shoes.b8602d60d7f4d3bec571.webp",
     "static/media/training.webp": "/static/media/training.877be0d41ecc5ddd1a0c.webp",
     "static/media/Softride-Frequence-Street-Running-Shoes.webp": "/static/media/Softride-Frequence-Street-Running-Shoes.093f2235d1412673e50c.webp",
     "static/media/Lookbook1.webp": "/static/media/Lookbook1.563dc1dcc1d34fe72daa.webp",
+    "static/media/Deviate-Shoes.webp": "/static/media/Deviate-Shoes.14d99915eded5f8beca0.webp",
     "static/media/slide1.webp": "/static/media/slide1.09282d9265753e36082a.webp",
     "static/media/football.webp": "/static/media/football.ed50c06bfec6f9faab87.webp",
     "static/media/BMW-MMS-Neo-Cat-Motorsport-Sneakers.webp": "/static/media/BMW-MMS-Neo-Cat-Motorsport-Sneakers.3c569ef0424ee7960c71.webp",
     "static/media/Court-Shatter-Low-Sneakers.webp": "/static/media/Court-Shatter-Low-Sneakers.545203147626164726af.webp",
+    "static/media/Velocity-NITRO-4.webp": "/static/media/Velocity-NITRO-4.15bed19d012d562eb20f.webp",
     "static/media/shoes.webp": "/static/media/shoes.fb635807bcede81e2d2e.webp",
     "static/media/Lookbook2.webp": "/static/media/Lookbook2.7090d4d26dee299ae0a7.webp",
     "static/media/basketball.webp": "/static/media/basketball.bcd0867105ea2e5a9f8b.webp",
@@ -34,12 +38,12 @@
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
-    "main.842fbe07.css.map": "/static/css/main.842fbe07.css.map",
-    "main.8e2780eb.js.map": "/static/js/main.8e2780eb.js.map",
+    "main.f9baa952.css.map": "/static/css/main.f9baa952.css.map",
+    "main.004d8cdc.js.map": "/static/js/main.004d8cdc.js.map",
     "453.03346f77.chunk.js.map": "/static/js/453.03346f77.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.842fbe07.css",
-    "static/js/main.8e2780eb.js"
+    "static/css/main.f9baa952.css",
+    "static/js/main.004d8cdc.js"
   ]
 }
