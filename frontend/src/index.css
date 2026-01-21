@@ -85,6 +85,31 @@ code {
   background-color: var(--color-white);
   color: var(--color-background);
 }
+
+.btn_background {
+  position: relative;
+  display: inline-flex;
+  white-space: normal;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  color: var(--color-white);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-background) !important;
+  border-radius: 0.125rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  box-shadow: unset;
+}
+.btn_background:hover,
+.btn_background:active,
+.btn_background:focus-visible {
+  background-color: var(--color-white) !important;
+  color: var(--color-background) !important;
+}
 .container {
   max-width: 1600px;
   padding-left: 2rem;

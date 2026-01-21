@@ -9,22 +9,28 @@ import reportWebVitals from './reportWebVitals';
 import Store from './Store/Store';
 import { Provider } from 'react-redux';
 import { SnackbarProvider } from 'notistack';
+import { BrowserRouter } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <Provider store={Store}>
-      <SnackbarProvider
-        maxSnack={2}
-        autoHideDuration={2000}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'center',
-        }}
-      >
-        <App />
-      </SnackbarProvider>
-    </Provider>
-  </React.StrictMode>
+  // <React.StrictMode>
+    <BrowserRouter>
+    <HelmetProvider>
+      <Provider store={Store}>
+        <SnackbarProvider
+          maxSnack={2}
+          autoHideDuration={2000}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'center',
+          }}
+        >
+          <App />
+        </SnackbarProvider>
+      </Provider>
+      </HelmetProvider>
+    </BrowserRouter>
+  // </React.StrictMode>
 );
 reportWebVitals();

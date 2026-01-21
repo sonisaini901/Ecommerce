@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import TrendingProducts from "../Home/TrendingProducts/TrendingProducts";
 import InsperationSection from "../../Components/InsperationSection/InsperationSection";
 import NeedHelpSection from "../../Components/NeedHelpSection/NeedHelpSection";
+import SEO from "../../Layout/SEO";
 
 const trendingCategories = [
     {
@@ -40,6 +41,8 @@ const PageNotFound = () => {
 
     return(
         <>
+            <SEO title={"Page Not Found - Forever Faster"} />
+            
             <div className="page_not_found_top section-padding">
                 <Container>
                     <Row>

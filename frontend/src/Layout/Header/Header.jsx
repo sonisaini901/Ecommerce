@@ -9,6 +9,10 @@ import { RiShoppingCartLine } from "react-icons/ri";
 import { IoMdClose } from "react-icons/io";
 import HeaderSearch from "../../Components/HeaderSearch/HeaderSearch";
 import { IoSearchOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "../../Store/Actions/UserActions";
+import { useSnackbar } from "notistack";
 
 const menuNav = [
     {
@@ -1335,6 +1339,12 @@ const menuNav = [
 
 const Header = () => {
 
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const { enqueueSnackbar } = useSnackbar();
+
+    const { isAuthenticated } = useSelector((state) => state.user);
+
     const [activeDropdown, setActiveDropdown] = useState(null);
     const [hoverActive, setHoverActive] = useState(null);
     const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
@@ -1369,6 +1379,13 @@ const Header = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    // Logout
+    const handleLogout = () => {
+        dispatch(logoutUser());
+        navigate("/");
+        enqueueSnackbar("Logout Successfully", { variant: "success" });
+    }
+
     const renderMobileMenu = () => {
         // LEVEL 1 – MAIN MENU
         if (level === 1) {
@@ -1385,8 +1402,14 @@ const Header = () => {
                         </li>
                     ))}
                     <div className="mobile_btns">
-                        <Button className="mobile_btn_nav black">Login</Button>
-                        <Button className="mobile_btn_nav">Join Us</Button>
+                        {isAuthenticated ? 
+                            <Button className="mobile_btn_nav black" onClick={() => handleLogout()}>Logout</Button>
+                        :
+                        <>
+                            <Button className="mobile_btn_nav black" onClick={() => navigate("/login")}>Login</Button>
+                            <Button className="mobile_btn_nav" onClick={() => navigate("/register")}>Join Us</Button>
+                        </>
+                        }
                     </div>
                 </ul>
             </>
@@ -1417,8 +1440,14 @@ const Header = () => {
                         </li>
                     ))}
                     <div className="mobile_btns">
-                        <Button className="mobile_btn_nav black">Login</Button>
-                        <Button className="mobile_btn_nav">Join Us</Button>
+                        {isAuthenticated ? 
+                            <Button className="mobile_btn_nav black" onClick={() => handleLogout()}>Logout</Button>
+                        :
+                        <>
+                            <Button className="mobile_btn_nav black" onClick={() => navigate("/login")}>Login</Button>
+                            <Button className="mobile_btn_nav" onClick={() => navigate("/register")}>Join Us</Button>
+                        </>
+                        }
                     </div>
                 </ul>
             </>
@@ -1442,8 +1471,14 @@ const Header = () => {
                         </li>
                     ))}
                     <div className="mobile_btns">
-                        <Button className="mobile_btn_nav black">Login</Button>
-                        <Button className="mobile_btn_nav">Join Us</Button>
+                        {isAuthenticated ? 
+                            <Button className="mobile_btn_nav black" onClick={() => handleLogout()}>Logout</Button>
+                        :
+                        <>
+                            <Button className="mobile_btn_nav black" onClick={() => navigate("/login")}>Login</Button>
+                            <Button className="mobile_btn_nav" onClick={() => navigate("/register")}>Join Us</Button>
+                        </>
+                        }
                     </div>
                 </ul>
 
@@ -1533,8 +1568,14 @@ const Header = () => {
                                     <Dropdown.Item href="/">Check Order/Initiate Return</Dropdown.Item>
                                 </div>
                                 <div className="mobile_btns">
-                                    <Button className="mobile_btn_nav black">Login</Button>
-                                    <Button className="mobile_btn_nav">Join Us</Button>
+                                    {isAuthenticated ? 
+                                        <Button className="mobile_btn_nav black" onClick={() => handleLogout()}>Logout</Button>
+                                    :
+                                    <>
+                                        <Button className="mobile_btn_nav black" onClick={() => navigate("/login")}>Login</Button>
+                                        <Button className="mobile_btn_nav" onClick={() => navigate("/register")}>Join Us</Button>
+                                    </>
+                                    }
                                 </div>
                             </Dropdown.Menu>
                             

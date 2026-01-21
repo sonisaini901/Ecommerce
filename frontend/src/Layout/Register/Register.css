@@ -1,0 +1,43 @@
+.login_register_form {
+    max-width: 512px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    color: var(--color-background);
+}
+.login_register_form .main_heading {
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--color-background);
+}
+.login_register_form .form_row label {
+    font-size: 12px;
+    line-height: 1.33;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+.login_register_form .form_row label span {
+    color: red;
+}
+.login_register_form .form_row input {
+    border: 1px solid var(--color-background);
+    border-radius: 0.25rem;
+    box-shadow: unset;
+    padding: 0.8rem 1rem;
+}
+.login_register_links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.login_register_links a {
+    font-size: 14px;
+    line-height: 1.428;
+    font-weight: 700;
+    color: var(--color-background);
+    text-transform: uppercase;
+    text-decoration-color: #a1a8af;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+}

@@ -2,15 +2,15 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-// const fileUpload = require('express-fileupload');
-// const errorMiddleware = require('./middlewares/error');
+const fileUpload = require('express-fileupload');
+const errorMiddleware = require('./middlewares/error');
 
 const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(fileUpload());
+app.use(fileUpload());
 
 var corsOptions = {
     origin: '*',
@@ -18,7 +18,7 @@ var corsOptions = {
   
 app.use(cors(corsOptions));
 
-// const user = require('./routes/userRoute');
+const user = require('./routes/userRoute');
 // const product = require('./routes/productRoute');
 // const order = require('./routes/orderRoute');
 // const payment = require('./routes/paymentRoute');
@@ -29,7 +29,7 @@ app.use(cors(corsOptions));
 // const wishlist = require('./routes/wishlistRoute');
 // const shipping = require('./routes/shippingRoute');
 
-// app.use('/api/v1', user);
+app.use('/api/v1', user);
 // app.use('/api/v1', product);
 // app.use('/api/v1', order);
 // app.use('/api/v1', payment);
@@ -41,6 +41,6 @@ app.use(cors(corsOptions));
 // app.use('/api/v1', shipping);
 
 // error middleware
-// app.use(errorMiddleware);
+app.use(errorMiddleware);
 
 module.exports = app;
