@@ -9,6 +9,9 @@ import { useEffect } from 'react';
 import Login from './Layout/Login/Login';
 import ForgotPassword from './Layout/Password/ForgotPassword';
 import ResetPassword from './Layout/Password/ResetPassword';
+import ProtectedRoute from './ProtectedRoute';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import AccountSettings from './Pages/Dashboard/AccountSettings/AccountSettings';
 
 function App() {
 
@@ -36,6 +39,19 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/password/forgot" element={<ForgotPassword />} />
           <Route path="/password/reset/:token" element={<ResetPassword />} />
+
+          {/* Dashboard */}
+          <Route path="/account" element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          } />
+
+          <Route path="/account/settings" element={
+            <ProtectedRoute>
+              <AccountSettings />
+            </ProtectedRoute>
+          } />
 
           <Route path="*" element={<PageNotFound />} />
         </Route>

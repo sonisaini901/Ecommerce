@@ -224,25 +224,7 @@ exports.updateProfile = asyncErrorHandler(async (req, res, next) => {
         firstname: req.body.firstname, 
         lastname: req.body.lastname,
         email: req.body.email,
-    }
-
-    if(req.body.avatar !== "") {
-        const user = await User.findById(req.user.id);
-
-        const imageId = user.avatar.public_id;
-
-        await cloudinary.v2.uploader.destroy(imageId);
-
-        const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
-            folder: "avatars",
-            width: 150,
-            crop: "scale",
-        });
-
-        newUserData.avatar = {
-            public_id: myCloud.public_id,
-            url: myCloud.secure_url,
-        }
+        gender: req.body.gender,
     }
 
     await User.findByIdAndUpdate(req.user.id, newUserData, {
@@ -304,25 +286,6 @@ exports.updateUserRole = asyncErrorHandler(async (req, res, next) => {
         email: req.body.email,
         gender: req.body.gender,
         role: req.body.role,
-    }
-
-    if(req.body.avatar !== "") {
-        const user = await User.findById(req.user.id);
-
-        const imageId = user.avatar.public_id;
-
-        await cloudinary.v2.uploader.destroy(imageId);
-
-        const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
-            folder: "avatars",
-            width: 150,
-            crop: "scale",
-        });
-
-        newUserData.avatar = {
-            public_id: myCloud.public_id,
-            url: myCloud.secure_url,
-        }
     }
 
     await User.findByIdAndUpdate(req.params.id, newUserData, {

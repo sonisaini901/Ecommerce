@@ -1403,7 +1403,10 @@ const Header = () => {
                     ))}
                     <div className="mobile_btns">
                         {isAuthenticated ? 
+                        <>
                             <Button className="mobile_btn_nav black" onClick={() => handleLogout()}>Logout</Button>
+                            <Button className="mobile_btn_nav" onClick={() => navigate("/account")}>Dashboard</Button>
+                        </>
                         :
                         <>
                             <Button className="mobile_btn_nav black" onClick={() => navigate("/login")}>Login</Button>
@@ -1441,7 +1444,10 @@ const Header = () => {
                     ))}
                     <div className="mobile_btns">
                         {isAuthenticated ? 
+                        <>
                             <Button className="mobile_btn_nav black" onClick={() => handleLogout()}>Logout</Button>
+                            <Button className="mobile_btn_nav" onClick={() => navigate("/account")}>Dashboard</Button>
+                        </>
                         :
                         <>
                             <Button className="mobile_btn_nav black" onClick={() => navigate("/login")}>Login</Button>
@@ -1472,7 +1478,10 @@ const Header = () => {
                     ))}
                     <div className="mobile_btns">
                         {isAuthenticated ? 
+                        <>
                             <Button className="mobile_btn_nav black" onClick={() => handleLogout()}>Logout</Button>
+                            <Button className="mobile_btn_nav" onClick={() => navigate("/account")}>Dashboard</Button>
+                        </>
                         :
                         <>
                             <Button className="mobile_btn_nav black" onClick={() => navigate("/login")}>Login</Button>
@@ -1563,13 +1572,15 @@ const Header = () => {
 
                             <Dropdown.Menu>
                                 <div className="users_dropdown_lists">
-                                    <Dropdown.Item href="/">My Account</Dropdown.Item>
+                                    <Dropdown.Item href="/account">My Account</Dropdown.Item>
                                     <Dropdown.Item href="/">Wishlist</Dropdown.Item>
                                     <Dropdown.Item href="/">Check Order/Initiate Return</Dropdown.Item>
                                 </div>
                                 <div className="mobile_btns">
                                     {isAuthenticated ? 
+                                    <>
                                         <Button className="mobile_btn_nav black" onClick={() => handleLogout()}>Logout</Button>
+                                    </>
                                     :
                                     <>
                                         <Button className="mobile_btn_nav black" onClick={() => navigate("/login")}>Login</Button>
