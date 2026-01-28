@@ -102,11 +102,12 @@ code {
   font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
-  box-shadow: unset;
+  box-shadow: unset !important;
 }
 .btn_background:hover,
 .btn_background:active,
-.btn_background:focus-visible {
+.btn_background:focus-visible,
+.btn_background.disabled {
   background-color: var(--color-white) !important;
   color: var(--color-background) !important;
 }

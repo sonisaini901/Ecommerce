@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
-import { forgotPasswordReducer, userReducer } from './Reducers/UserReducer';
+import { forgotPasswordReducer, profileReducer, userReducer } from './Reducers/UserReducer';
 
 const reducer = combineReducers({
   user: userReducer,
+  profile: profileReducer,
   forgotPassword: forgotPasswordReducer,
 });
 

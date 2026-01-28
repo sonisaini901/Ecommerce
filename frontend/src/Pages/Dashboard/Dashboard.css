@@ -109,6 +109,7 @@
 }
 .account_setting_header .main_heading {
     font-weight: 500;
+    text-transform: capitalize;
 }
 .account_setting_header .edit_profile_option {
     background-color: transparent;
@@ -146,4 +147,30 @@
     .account_setting_box {
         padding: 1.5rem 1rem;
     }
+}
+/* Details edit modal */
+.profile_edit_modal .modal-body {
+    padding: 2rem;
+}
+.profile_edit_modal .account_setting_header {
+    margin-bottom: 1rem;
+}
+.profile_edit_modal .login_register_form {
+    max-width: 100%;
+}
+.login_register_form .form_row input.form-check-input {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    padding: 0;
+    margin-right: 1rem;
+}
+.login_register_form .form_row label.form-check-label {
+    margin: 0;
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 400;
+}
+.login_register_form .form_row .form-check {
+    margin-bottom: 1rem;
 }

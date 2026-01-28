@@ -23,7 +23,7 @@ const Login = () => {
         dispatch(loginUser(email, password));
     }
 
-    const redirect = location.search ? location.search.split("=")[1] : "";
+    const redirect = location.search ? location.search.split("=")[1] : "account";
 
     useEffect(() => {
         if (error) {

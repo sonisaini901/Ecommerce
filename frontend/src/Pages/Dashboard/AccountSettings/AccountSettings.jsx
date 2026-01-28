@@ -3,10 +3,16 @@ import SEO from "../../../Layout/SEO"
 import DashboardMenus from "../DashboardMenus"
 import { BiEditAlt } from "react-icons/bi";
 import { useSelector } from "react-redux";
+import { useState } from "react";
+import PersonalDetails from "./PersonalDetails";
+import PasswordUpdate from "./PasswordUpdate";
 
 const AccountSettings = () => {
 
     const { user, isAuthenticated } = useSelector(state => state.user);
+
+    const [personalDetailsShow, setPersonalDetailsShow] = useState(false);
+    const [passwordShow, setPasswordShow] = useState(false);
 
     return(
         <>
@@ -22,7 +28,7 @@ const AccountSettings = () => {
                             <div className="account_setting_box">
                                 <div className="account_setting_header">
                                     <h2 className="main_heading">Personal Details</h2>
-                                    <Button className="edit_profile_option">
+                                    <Button className="edit_profile_option" onClick={() => setPersonalDetailsShow(true)}>
                                         <BiEditAlt />
                                     </Button>
                                 </div>
@@ -31,6 +37,7 @@ const AccountSettings = () => {
                                         <>
                                             {user.firstname && <p className="account_setting_text"><b>First Name:</b> {user.firstname}</p>}
                                             {user.lastname && <p className="account_setting_text"><b>Last Name:</b> {user.lastname}</p>}
+                                            {user.gender && <p className="account_setting_text"><b>Gender:</b> {user.gender === "male" ? "Male" : "Female"}</p>}
                                         </>
                                     }
                                 </div>
@@ -39,7 +46,7 @@ const AccountSettings = () => {
                             <div className="account_setting_box">
                                 <div className="account_setting_header">
                                     <h2 className="main_heading">Email & Password</h2>
-                                    <Button className="edit_profile_option">
+                                    <Button className="edit_profile_option" onClick={() => setPasswordShow(true)}>
                                         <BiEditAlt />
                                     </Button>
                                 </div>
@@ -57,6 +64,18 @@ const AccountSettings = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Personal Details */}
+            <PersonalDetails
+                show={personalDetailsShow}
+                onClose={() => setPersonalDetailsShow(false)}
+            />
+
+            {/* Update Password */}
+            <PasswordUpdate
+                show={passwordShow}
+                onClose={() => setPasswordShow(false)}
+            />
         </>
     )
 }
