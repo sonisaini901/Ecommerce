@@ -148,7 +148,7 @@
         padding: 1.5rem 1rem;
     }
 }
-/* Details edit modal */
+/* Profile Details edit modal */
 .profile_edit_modal .modal-body {
     padding: 2rem;
 }
@@ -164,6 +164,10 @@
     border-radius: 50%;
     padding: 0;
     margin-right: 1rem;
+    border-color: var(--color-background);
+}
+.login_register_form .form_row .form-check.checkbox input.form-check-input  {
+    border-radius: 0;
 }
 .login_register_form .form_row label.form-check-label {
     margin: 0;
@@ -173,4 +177,65 @@
 }
 .login_register_form .form_row .form-check {
     margin-bottom: 1rem;
+}
+
+/* Addresses */
+.account_add_block {
+    border-radius: 0.25rem;
+    padding: 2rem;
+    background-color: var(--light-bg);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.account_add_block svg {
+    font-size: 24px;
+}
+.account_add_block .account_btns {
+    font-size: 14px;
+    line-height: 1.428;
+    font-weight: 700;
+    padding: 0;
+    background-color: transparent !important;
+    text-transform: uppercase;
+    color: var(--color-background);
+    box-shadow: unset !important;
+    border: unset !important;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+    text-decoration-color: #a1a8af;
+}
+.account_add_block .account_btns:hover {
+    text-decoration-color: var(--color-background);
+}
+.profile_edit_modal .subheading_text {
+    color: var(--color-background);
+    text-transform: capitalize;
+}
+.profile_edit_modal .login_register_form .form_flex_rows {
+    display: flex;
+    gap: 1.5rem;
+    width: 100%;
+}
+.addresses_page .account_address_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+.account_setting_header .address_btns_block {
+    display: flex;
+    gap: 10px;
+}
+@media (max-width: 767px) {
+    .addresses_page .account_address_grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+@media (max-width: 480px) {
+    .profile_edit_modal .login_register_form .form_flex_rows {
+        flex-direction: column;
+    }
 }

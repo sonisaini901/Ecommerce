@@ -12,6 +12,7 @@ import ResetPassword from './Layout/Password/ResetPassword';
 import ProtectedRoute from './ProtectedRoute';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import AccountSettings from './Pages/Dashboard/AccountSettings/AccountSettings';
+import ManageAddress from './Pages/Dashboard/ManageAddress/ManageAddress';
 
 function App() {
 
@@ -50,6 +51,12 @@ function App() {
           <Route path="/account/settings" element={
             <ProtectedRoute>
               <AccountSettings />
+            </ProtectedRoute>
+          } />
+
+          <Route path="/account/addresses" element={
+            <ProtectedRoute>
+              <ManageAddress />
             </ProtectedRoute>
           } />
 

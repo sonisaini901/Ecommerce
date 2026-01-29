@@ -10,6 +10,9 @@
     padding-bottom: 1rem;
     border-bottom: 2px solid var(--color-background);
 }
+.login_register_form .form_row {
+    width: 100%;
+}
 .login_register_form .form_row label {
     font-size: 12px;
     line-height: 1.33;
@@ -20,7 +23,7 @@
 .login_register_form .form_row label span {
     color: red;
 }
-.login_register_form .form_row input {
+.login_register_form .form_row .form-control {
     border: 1px solid var(--color-background);
     border-radius: 0.25rem;
     box-shadow: unset;
