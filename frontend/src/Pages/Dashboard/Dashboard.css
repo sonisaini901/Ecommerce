@@ -189,26 +189,28 @@
     flex-direction: column;
     justify-content: center;
     gap: 0.5rem;
+    cursor: pointer;
 }
 .account_add_block svg {
     font-size: 24px;
 }
-.account_add_block .account_btns {
+.account_sttings_flex .account_btns {
     font-size: 14px;
     line-height: 1.428;
     font-weight: 700;
     padding: 0;
     background-color: transparent !important;
     text-transform: uppercase;
-    color: var(--color-background);
+    color: var(--color-background) !important;
     box-shadow: unset !important;
     border: unset !important;
     text-decoration: underline;
     text-underline-offset: 4px;
     text-decoration-thickness: 2px;
     text-decoration-color: #a1a8af;
+    width: max-content;
 }
-.account_add_block .account_btns:hover {
+.account_sttings_flex .account_btns:hover {
     text-decoration-color: var(--color-background);
 }
 .profile_edit_modal .subheading_text {
@@ -228,6 +230,25 @@
 .account_setting_header .address_btns_block {
     display: flex;
     gap: 10px;
+}
+.account_setting_content .address_default {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 1.333;
+    height: 1.5rem;
+    min-width: 1.5rem;
+    width: max-content;
+    border-radius: 0.125rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: var(--color-white);
+    background-color: var(--color-background);
+    margin-bottom: 1rem;
 }
 @media (max-width: 767px) {
     .addresses_page .account_address_grid {

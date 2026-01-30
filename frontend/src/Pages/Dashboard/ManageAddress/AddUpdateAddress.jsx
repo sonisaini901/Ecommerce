@@ -1,5 +1,5 @@
 import { useSnackbar } from "notistack";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap"
 import { IoMdClose } from "react-icons/io"
 import { useDispatch, useSelector } from "react-redux";
@@ -43,9 +43,15 @@ const AddUpdateAddress = ({show, onClose, addressId}) => {
         }
     }
 
-    const closeModal = () => {
-        onClose()
-    }
+    const closeModal = useCallback(() => {
+        onClose();
+    }, [onClose]);
+
+    useEffect(() => {
+        if (show && addressId) {
+            dispatch(getAddressDetailsById(addressId));
+        }
+    }, [dispatch, show, addressId]);
 
     useEffect(() => {
         if(error){
@@ -60,18 +66,16 @@ const AddUpdateAddress = ({show, onClose, addressId}) => {
         }
 
         if(updateError){
-            enqueueSnackbar(error, { variant: "error" });
+            enqueueSnackbar(updateError, { variant: "error" });
             dispatch(clearAddressErrors());
         }
         if (isUpdated) {
             dispatch({ type: UPDATE_ADDRESS_RESET });
             enqueueSnackbar("Address Updated Successfully", { variant: "success" });
             dispatch(getAddressDetails(user._id));
+            closeModal();
         }
 
-        if(loading === undefined && addressId){
-            dispatch(getAddressDetailsById(addressId));
-        } 
         if(addressDetails){
             setAddressTitle(addressDetails.addressTitle);
             setAddress(addressDetails.address);
@@ -83,9 +87,10 @@ const AddUpdateAddress = ({show, onClose, addressId}) => {
             setAddress1(addressDetails.address1);
             setFirstname(addressDetails.firstname);
             setLastname(addressDetails.lastname);
+            setDefaults(addressDetails.defaults);
         }
        
-    }, [dispatch, user, addressId, enqueueSnackbar, error, success, addressDetails, loading, updateError, isUpdated]);
+    }, [dispatch, user, enqueueSnackbar, error, success, addressDetails, updateError, isUpdated, closeModal]);
 
 
     return(

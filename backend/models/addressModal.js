@@ -47,12 +47,20 @@ const addressSchema = new mongoose.Schema({
     },
     defaults: {
         type: Boolean,
-        required: true,
+        default: false
     },
     createdAt: {
         type: Date,
         default: Date.now
     },
 });
+
+addressSchema.index(
+    { user: 1 },
+    {
+        unique: true,
+        partialFilterExpression: { defaults: true }
+    }
+);
 
 module.exports = mongoose.model("Address", addressSchema);

@@ -1,4 +1,4 @@
-import { CLEAR_ADDRESS_ERRORS, GET_ADDRESS_BY_ID_FAIL, GET_ADDRESS_BY_ID_REQUEST, GET_ADDRESS_BY_ID_SUCCESS, GET_ADDRESS_FAIL, GET_ADDRESS_REQUEST, GET_ADDRESS_SUCCESS, NEW_ADDRESS_FAIL, NEW_ADDRESS_REQUEST, NEW_ADDRESS_RESET, NEW_ADDRESS_SUCCESS, UPDATE_ADDRESS_FAIL, UPDATE_ADDRESS_REQUEST, UPDATE_ADDRESS_RESET, UPDATE_ADDRESS_SUCCESS } from "../Types/AddressTypes";
+import { CLEAR_ADDRESS_ERRORS, DELETE_ADDRESS_FAIL, DELETE_ADDRESS_REQUEST, DELETE_ADDRESS_RESET, DELETE_ADDRESS_SUCCESS, GET_ADDRESS_BY_ID_FAIL, GET_ADDRESS_BY_ID_REQUEST, GET_ADDRESS_BY_ID_SUCCESS, GET_ADDRESS_FAIL, GET_ADDRESS_REQUEST, GET_ADDRESS_SUCCESS, NEW_ADDRESS_FAIL, NEW_ADDRESS_REQUEST, NEW_ADDRESS_RESET, NEW_ADDRESS_SUCCESS, UPDATE_ADDRESS_FAIL, UPDATE_ADDRESS_REQUEST, UPDATE_ADDRESS_RESET, UPDATE_ADDRESS_SUCCESS } from "../Types/AddressTypes";
 
 export const addressDetailsReducer = (state = { addressDetails: {} }, { type, payload }) => {
 
@@ -96,6 +96,7 @@ export const addShippingReducer = (state = { shipping: {} }, { type, payload }) 
 export const shippingReducer = (state = {}, { type, payload }) => {
     switch (type) {
         case UPDATE_ADDRESS_REQUEST:
+        case DELETE_ADDRESS_REQUEST:
             return {
                 ...state,
                 loading: true,
@@ -117,10 +118,29 @@ export const shippingReducer = (state = {}, { type, payload }) => {
                 ...state,
                 isUpdated: false,
             };
+        case DELETE_ADDRESS_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                isDeleted: true,
+            };
+        case DELETE_ADDRESS_FAIL:
+            return {
+                ...state,
+                loading: false,
+                deleteError: payload,
+            };
+
+        case DELETE_ADDRESS_RESET:
+            return {
+                ...state,
+                isDeleted: false,
+            };
         case CLEAR_ADDRESS_ERRORS:
             return {
                 ...state,
                 error: null,
+                deleteError: null,
             };
         default:
             return state;
