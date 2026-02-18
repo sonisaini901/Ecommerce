@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
 import { useEffect, useState } from "react";
-import { clearErrors, loginUser } from "../../Store/Actions/UserActions";
+import { clearErrors, loadPaymentKey, loginUser } from "../../Store/Actions/UserActions";
 
 const Login = () => {
 
@@ -31,6 +31,7 @@ const Login = () => {
             dispatch(clearErrors());
         }
         if (isAuthenticated) {
+            dispatch(loadPaymentKey());
             navigate(`/${redirect}`)
         }
     }, [dispatch, error, isAuthenticated, user, redirect, navigate, enqueueSnackbar]);

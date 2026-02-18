@@ -1,0 +1,58 @@
+.trusted_payments_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1024px;
+    margin: auto;
+}
+.trusted_pauments_item {
+    padding: 2.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid #e5e7eb;
+    text-align: center;
+}
+.trusted_pauments_item svg {
+    font-size: 48px;
+    margin-bottom: 1rem;
+}
+.trusted_pauments_item .trusted_payments_title {
+    font-size: 18px;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+}
+.trusted_pauments_item .trusted_payments_subtitle {
+    font-size: 12px;
+    margin: 0;
+    text-transform: uppercase;
+    text-align: center;
+}
+.tusted_payments_method {
+    text-align: center;
+}
+.payments_method_heading {
+    text-transform: uppercase;
+}
+.tusted_payments_method .payment_icons {
+    max-width: 100%;
+}
+@media (max-width: 991px) {
+    .trusted_pauments_item {
+        padding: 1.5rem;
+    }
+    .trusted_payments_grid {
+        gap: 1rem;
+    }
+}
+@media (max-width: 767px) {
+    .trusted_payments_grid {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .trusted_pauments_item {
+        max-width: 300px;
+    }
+}

@@ -1,0 +1,45 @@
+.dashboard_content_block .breadcrumb-item a {
+    color: var(--color-background);
+    text-decoration: unset;
+    font-weight: 600;
+}
+.orders_page .dashboard_content_block .login_register_form {
+    max-width: 100%;
+}
+.orders_lists_flex {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: start;
+    margin-top: 3rem;
+}
+.orders_lists_flex .orders_lists_block {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+    width: 100%;
+    border: 1px solid #e5e7eb;
+    padding: 1.25rem;
+}
+.orders_lists_block .order_lists_cols {
+    flex: 1;
+}
+.order_lists_cols .order_content {
+    margin: 0;
+}
+.order_lists_cols .cart_table_item {
+    border: 0 !important;
+    padding: 1rem 0 !important;
+}
+.order_lists_cols .cart_table_item .cart_table_item_img {
+    width: 100px;
+}
+.order_lists_cols .cart_table_item .cart_item_left_content .main_heading {
+    margin-bottom: 1rem;
+    font-size: 16px;
+}
+@media (max-width: 991px) {
+    .orders_lists_flex .orders_lists_block {
+        flex-direction: column;
+    }
+}

@@ -5,7 +5,7 @@ import { IoMdClose } from "react-icons/io"
 import { useDispatch, useSelector } from "react-redux";
 import { clearAddressErrors, createShipping, getAddressDetails, getAddressDetailsById, updateShipping } from "../../../Store/Actions/AddressActions";
 import { NEW_ADDRESS_RESET, UPDATE_ADDRESS_RESET } from "../../../Store/Types/AddressTypes";
-import States from "../../../Store/Utils/States";
+import States from "../../../Utils/States";
 
 const AddUpdateAddress = ({show, onClose, addressId}) => {
 

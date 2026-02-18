@@ -197,10 +197,26 @@
     justify-content: center;
     padding: 0;
     border: none;
+    position: relative;
 }
 .header_main .header_btn_icon:hover,
 .header_main .header_btn_icon:active {
     background-color: #3b4047;
+}
+.header_main .header_btn_icon .cart_count {
+    background-color: red;
+    color: var(--color-white);
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    border-radius: 50%;
+    width: 22px;
+    line-height: 1;
+    font-size: 12px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .header_btn_icon svg {
     font-size: 1.3rem;

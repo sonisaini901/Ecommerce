@@ -107,7 +107,7 @@ code {
 .btn_background:hover,
 .btn_background:active,
 .btn_background:focus-visible,
-.btn_background.disabled {
+.btn_background:disabled {
   background-color: var(--color-white) !important;
   color: var(--color-background) !important;
 }

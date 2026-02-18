@@ -13,6 +13,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../Store/Actions/UserActions";
 import { useSnackbar } from "notistack";
+import { getWIshlistItems } from "../../Store/Actions/WishlistActions";
+import { GET_WISHLIST_RESET } from "../../Store/Types/WishlistTypes";
 
 const menuNav = [
     {
@@ -1343,7 +1345,14 @@ const Header = () => {
     const dispatch = useDispatch();
     const { enqueueSnackbar } = useSnackbar();
 
-    const { isAuthenticated } = useSelector((state) => state.user);
+    const { user, isAuthenticated } = useSelector((state) => state.user);
+    const { cartItems } = useSelector(state => state.cart);
+    const { wishlists, loading: wishlistLoading, error: wishlistError } = useSelector((state) => state.wishlists);
+
+    const totalQuantity = cartItems && cartItems.reduce(
+        (sum, item) => sum + item.quantity,
+        0
+    );
 
     const [activeDropdown, setActiveDropdown] = useState(null);
     const [hoverActive, setHoverActive] = useState(null);
@@ -1378,6 +1387,16 @@ const Header = () => {
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
+
+    useEffect(() => {
+        if(user && user._id && wishlistLoading === undefined){
+            dispatch(getWIshlistItems(user._id));
+        }
+
+        if(wishlistError){
+            dispatch({ type: GET_WISHLIST_RESET });
+        }
+    }, [dispatch, user, wishlistError, wishlistLoading])
 
     // Logout
     const handleLogout = () => {
@@ -1559,11 +1578,17 @@ const Header = () => {
                             <IoSearchOutline />
                             <span>Search</span>
                         </Button>
-                        <Button className="header_btn_icon wishlist">
+                        <Button className="header_btn_icon wishlist" onClick={() => navigate("/account/wishlist")}>
                             <FaRegHeart />
+                            {wishlists && wishlists.length > 0 && (
+                                <span className="cart_count">{wishlists.length}</span>
+                            )}
                         </Button>
-                        <Button className="header_btn_icon">
+                        <Button className="header_btn_icon" onClick={() => navigate("/cart")}>
                             <RiShoppingCartLine />
+                            {cartItems && cartItems.length > 0 && (
+                                <span className="cart_count">{totalQuantity}</span>
+                            )}
                         </Button>
                         <Dropdown className="dropdown_users_block">
                             <Dropdown.Toggle className="header_btn_icon" id="dropdown_users">
@@ -1573,7 +1598,7 @@ const Header = () => {
                             <Dropdown.Menu>
                                 <div className="users_dropdown_lists">
                                     <Dropdown.Item href="/account">My Account</Dropdown.Item>
-                                    <Dropdown.Item href="/">Wishlist</Dropdown.Item>
+                                    <Dropdown.Item href="/account/wishlist">Wishlist</Dropdown.Item>
                                     <Dropdown.Item href="/">Check Order/Initiate Return</Dropdown.Item>
                                 </div>
                                 <div className="mobile_btns">

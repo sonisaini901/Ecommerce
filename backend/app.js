@@ -6,7 +6,7 @@ const fileUpload = require('express-fileupload');
 const errorMiddleware = require('./middlewares/error');
 
 const app = express();
-
+console.log(process.env.PORT)
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -19,25 +19,25 @@ var corsOptions = {
 app.use(cors(corsOptions));
 
 const user = require('./routes/userRoute');
-// const product = require('./routes/productRoute');
-// const order = require('./routes/orderRoute');
-// const payment = require('./routes/paymentRoute');
+const product = require('./routes/productRoute');
+const order = require('./routes/orderRoute');
+const payment = require('./routes/paymentRoute');
 // const category = require('./routes/categoryRoute');
 // const coupon = require('./routes/couponRoute');
 // const faq = require('./routes/faqRoute');
 // const blog = require('./routes/blogRoute');
-// const wishlist = require('./routes/wishlistRoute');
+const wishlist = require('./routes/wishlistRoute');
 const shipping = require('./routes/addressRoute');
 
 app.use('/api/v1', user);
-// app.use('/api/v1', product);
-// app.use('/api/v1', order);
-// app.use('/api/v1', payment);
+app.use('/api/v1', product);
+app.use('/api/v1', order);
+app.use('/api/v1', payment);
 // app.use('/api/v1', category);
 // app.use('/api/v1', coupon);
 // app.use('/api/v1', faq);
 // app.use('/api/v1', blog);
-// app.use('/api/v1', wishlist);
+app.use('/api/v1', wishlist);
 app.use('/api/v1', shipping);
 
 // error middleware

@@ -1,0 +1,124 @@
+/* Checkout menu */
+.checkout_menus_lists {
+    margin: 2rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+.checkout_menus_lists .checkout_menu_link {
+    padding: 0.25rem 0.5rem;
+    text-transform: uppercase;
+    color: #a1a8af;
+    display: inline-flex;
+    border-bottom: 2px solid #a1a8af;
+    pointer-events: none;
+    text-decoration: unset;
+    font-weight: 700;
+}
+.checkout_menus_lists .checkout_menu_link.active {
+    color: var(--color-background);
+    border-color: var(--color-background);
+    pointer-events: all;
+}
+.checkout_menus_lists .checkout_menu_link.active.current {
+    pointer-events: none;
+}
+/* Checkout sidebar */
+.checkout_page_section .cart_table_flex .cart_table_block {
+    max-width: 100%;
+    gap: 0;
+}
+.checkout_page_section .cart_table_item_img {
+    width: 6rem;
+}
+.checkout_page_section .cart_item_left_content .main_heading {
+    font-size: 16px;
+}
+.checkout_orders_details .accordion-item {
+    border: unset !important;
+}
+.checkout_orders_details .accordion-button {
+    background-color: #f6f7f8 !important;
+    color: var(--color-background);
+    box-shadow: unset !important;
+    text-transform: uppercase;
+    font-size: 20px;
+    border-radius: 0 !important;
+}
+.checkout_orders_details .accordion-body {
+    padding: 20px 0 0;
+}
+/* Checkout addresses */
+.checkout_sections_subheading {
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+.checkout_page_section .btn_background.btn_checkout {
+    max-width: 370px;
+}
+.checkout_section_headings {
+    background-color: #f6f7f8 !important;
+    text-transform: uppercase;
+    font-size: 20px;
+    border-radius: 0 !important;
+    padding: 1rem 1.25rem;
+    display: flex;
+    font-weight: 400;
+}
+.checkout_page_section .form-check {
+    border: 1px solid #e5e7eb;
+    padding: 1rem 1.25rem;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
+}
+.checkout_page_section .form-check .form-check-input {
+    color: var(--color-background);
+    border-color: var(--color-background);
+    margin-left: 0;
+}
+.checkout_page_section .form-check .form-check-input:checked {
+    background-color: var(--color-background);
+}
+.checkout_page_section .login_register_form {
+    max-width: 100%;
+    width: 100%;
+}
+.checkout_page_section .shipping_block .form-check {
+    border: none;
+    padding: 1rem 0;
+}
+.checkout_page_section .shipping_block .form-check-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    width: 100%;
+}
+.checkout_page_section .shipping_block .form-check-label .amount {
+    font-weight: 400;
+}
+.checkout_section_headings_link {
+    color: var(--color-background);
+    text-decoration: unset;
+}
+.checkout_section_headings_link .checkout_section_headings span {
+    margin-left: auto;
+    padding-left: 1rem;
+}
+/* Payment method */
+.stripe_card_form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.stripe_card_form .form_row {
+    padding: 1rem;
+    border: 1px solid var(--color-background);
+    border-radius: 0.25rem;
+}

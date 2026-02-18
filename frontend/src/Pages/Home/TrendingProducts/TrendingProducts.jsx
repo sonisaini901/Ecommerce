@@ -1,15 +1,15 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import "./TrendingProducts.css";
 import Slider from "react-slick";
-import riderImg from "../../../assests/images/home/products/Blktop-Rider-Suede-Sneakers.webp";
-import courtImg from "../../../assests/images/home/products/Court-Shatter-Low-Sneakers.webp";
-import fusionproImg from "../../../assests/images/home/products/FusionPro-Lightweight-Cushioned-Men's-Running-Shoes.webp";
-import BMWMMSImg from "../../../assests/images/home/products/BMW-MMS-Neo-Cat-Motorsport-Sneakers.webp";
-import softriderImg from "../../../assests/images/home/products/Softride-Frequence-Street-Running-Shoes.webp";
-import galaxisImg from "../../../assests/images/home/products/Galaxis-Pro-Men's-Performance-Boost-Running-Shoes.webp";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { addItemsToCart } from "../../../Store/Actions/CartActions";
+import { useSnackbar } from "notistack";
+import { addWishlistItem, clearWishlistErrors, deleteWishlist, getWIshlistItems } from "../../../Store/Actions/WishlistActions";
+import { ADD_WISHLIST_RESET, GET_WISHLIST_RESET, REMOVE_WISHLIST_RESET } from "../../../Store/Types/WishlistTypes";
+import { FaHeart } from "react-icons/fa6";
 
 function CustomNextArrow(props) {
     const { className, style, onClick } = props;
@@ -37,64 +37,28 @@ function CustomPrevArrow(props) {
     );
 }
 
-const products = [
-    {
-        id: "1",
-        title: "Blktop Rider Suede Sneakers",
-        link: "blktop_rider_suede_sneakers",
-        discount: "-50%",
-        price: 4499,
-        original: 8999,
-        image: riderImg,
-    },
-    {
-        id: "2",
-        title: "Softride Frequence Street Running Shoes",
-        link: "softride_frequence_street_running_shoes",
-        discount: "-54%",
-        price: 3150,
-        original: 6999,
-        image: softriderImg,
-    },
-    {
-        id: "3",
-        title: "Galaxis Pro Men's Performance Boost Running Shoes",
-        link: "galaxis_pro_mens_performance_boost_running_shoes",
-        discount: "-50%",
-        price: 3499,
-        original: 6999,
-        image: galaxisImg,
-    },
-    {
-        id: "4",
-        title: "BMW MMS Neo Cat Motorsport Sneakers",
-        link: "BMW_MMS_neo_cat_motorsport_sneakers",
-        discount: "-54%",
-        price: 3375,
-        original: 7499,
-        image: BMWMMSImg,
-    },
-    {
-        id: "5",
-        title: "FusionPro Lightweight Cushioned Men's Running Shoes",
-        link: "fusionpro_lightweight_cushioned_mens_running_shoes",
-        discount: "-54%",
-        price: 3600,
-        original: 7999,
-        image: fusionproImg,
-    },
-    {
-        id: "6",
-        title: "Court Shatter Low Sneakers",
-        link: "court_shatter_low_sneakers",
-        discount: "-50%",
-        price: 2999,
-        original: 5999,
-        image: courtImg,
-    }
-]
-
 const TrendingProducts = () => {
+
+    const dispatch = useDispatch();
+    const { enqueueSnackbar } = useSnackbar();
+
+    const { cartItems } = useSelector((state) => state.cart);
+
+    const { user } = useSelector((state) => state.user);
+    const { products } = useSelector((state) => state.products);
+    const { wishlists, loading: wishlistLoading, error: wishlistError } = useSelector((state) => state.wishlists);
+    const { isDeleted, error: deleteError } = useSelector((state) => state.wishlistItem);
+    const { success: isAdded, error: addError } = useSelector((state) => state.newWIshlist);
+
+    const addToCartHandler = (e, id, quantity, stock) => {
+        e.preventDefault();
+        if (quantity >= stock) {
+            enqueueSnackbar("Maximum Order Quantity", { variant: "warning" });
+            return;
+        };
+        dispatch(addItemsToCart(id, quantity));
+        enqueueSnackbar("Product Added To Cart", { variant: "success" });
+    }
 
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const isLessSer = windowWidth < 480;
@@ -120,6 +84,52 @@ const TrendingProducts = () => {
         prevArrow: <CustomPrevArrow />,
     };
 
+    const addToWishlistHandler = (e, itemExist, id) => {
+        e.preventDefault();
+        if(user && user._id){
+            if(itemExist){
+                const item = wishlists.filter((i) => i.product._id === id);
+                dispatch(deleteWishlist(item[0]._id));
+                enqueueSnackbar("Remove From Wishlist", { variant: "success" });
+            } else {
+                const data = {
+                    product: id,
+                    user: user._id,
+                };
+                dispatch(addWishlistItem(data));
+                enqueueSnackbar("Added To Wishlist", { variant: "success" });
+            }
+        } else {
+            enqueueSnackbar("Please Login to add item in wishlist", { variant: "warning" });
+        }
+    }
+
+    useEffect(() => {
+        if(user && user._id && wishlistLoading === undefined){
+            dispatch(getWIshlistItems(user._id));
+        }
+        if(wishlistError){
+            dispatch({ type: GET_WISHLIST_RESET });
+        }
+        if (deleteError) {
+            enqueueSnackbar(deleteError, { variant: "error" });
+            dispatch(clearWishlistErrors());
+        }
+        if (addError) {
+            enqueueSnackbar(addError, { variant: "error" });
+            dispatch(clearWishlistErrors());
+        }
+        if (isDeleted) {
+            dispatch({ type: REMOVE_WISHLIST_RESET });
+            dispatch(getWIshlistItems(user._id));
+        }
+        if (isAdded) {
+            
+            dispatch({ type: ADD_WISHLIST_RESET });
+            dispatch(getWIshlistItems(user._id));
+        }
+    }, [dispatch, wishlistLoading, user, deleteError, isDeleted, isAdded, addError, enqueueSnackbar, wishlistError])
+
     return(
         <div className="trending_products_section section-padding no-top-padding">
             <Container>
@@ -128,23 +138,32 @@ const TrendingProducts = () => {
                         <h2 className="main_heading">Trending Now</h2>
                         <div className="trending_products_slides less-top-padding">
                             <Slider {...settings}>
-                                {products.map((item, i) => (
+                                {products && products.length >= 1 && products.map((item, i) => {
+                                const itemInCart = cartItems.find((i) => i.product === item._id);
+                                const quantity = itemInCart && itemInCart.quantity ? itemInCart.quantity + 1 : 1;
+                                const itemWishlist = wishlists && wishlists.some((i) => i.product._id === item._id);
+                                return(
                                     <div className="slide products_slides" key={i}>
-                                        <Link to={item.link} className="products_slider_item">
+                                        <Link to={item.url} className="products_slider_item">
                                             <div className="product_slider_image">
-                                                <img src={item.image} alt={item.title} className="product_slider_img" />
+                                                <img src={item.images && item.images[0].url} alt={item.name} className="product_slider_img" />
+
                                                 <span className="product_discount">{item.discount}</span>
+
+                                                <span onClick={(e) => addToWishlistHandler(e, itemWishlist, item._id)} className={`product_wishlist ${itemWishlist ? 'exist' : ""}`}><FaHeart /></span>
+
+                                                <Button onClick={(e) => addToCartHandler(e, item._id, quantity, item.stock)} className="btn_background">Add to cart</Button>
                                             </div>
                                             <div className="product_slider_content">
-                                                <h3 className="product_slider_title">{item.title}</h3>
+                                                <h3 className="product_slider_title">{item.name}</h3>
                                                 <p className="product_price">
-                                                    <span>₹{item.price}</span>
-                                                    {item.original && <span className="base">₹{item.original}</span>}
+                                                    <span>₹{item.cuttedPrice}</span>
+                                                    {item.price && <span className="base">₹{item.price}</span>}
                                                 </p>
                                             </div>
                                         </Link>
                                     </div>
-                                ))}
+                                )})}
                             </Slider>
                         </div>
                     </Col>

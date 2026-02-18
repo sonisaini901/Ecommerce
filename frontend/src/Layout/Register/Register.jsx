@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useSnackbar } from 'notistack';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { clearErrors, registerUser } from "../../Store/Actions/UserActions";
+import { clearErrors, loadPaymentKey, registerUser } from "../../Store/Actions/UserActions";
 import SEO from "../SEO";
 
 const Register = () => {
@@ -57,6 +57,7 @@ const Register = () => {
             dispatch(clearErrors());
         }
         if (isAuthenticated) {
+            dispatch(loadPaymentKey());
             navigate('/account')
         }
     }, [dispatch, error, isAuthenticated, navigate, enqueueSnackbar]);
