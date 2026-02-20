@@ -20,7 +20,7 @@ const CartTable = () => {
 
     return(
         <div className="cart_table_block">
-            {cartItems.map((item,i) => (
+            {cartItems && cartItems.map((item,i) => (
                 <div className="cart_table_item" key={i}>
                     <div className="cart_table_item_img">
                         <Link to={item.data.url}>
