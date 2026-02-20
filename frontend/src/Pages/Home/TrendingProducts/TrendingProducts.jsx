@@ -56,6 +56,7 @@ const TrendingProducts = () => {
             enqueueSnackbar("Maximum Order Quantity", { variant: "warning" });
             return;
         };
+        console.log(id)
         dispatch(addItemsToCart(id, quantity));
         enqueueSnackbar("Product Added To Cart", { variant: "success" });
     }

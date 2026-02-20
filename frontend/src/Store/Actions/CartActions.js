@@ -3,7 +3,7 @@ import { ADD_TO_CART, EMPTY_CART, REMOVE_FROM_CART, TOTAL_AMOUNT } from "../Type
 
 // add to cart
 export const addItemsToCart = (id, quantity = 1) => async (dispatch, getState) => {
-    const { data } = await axios.get(`/api/v1/product/${id}`);
+    const { data } = await axios.get(`/api/v1/productID/${id}`);
 
     dispatch({
         type: ADD_TO_CART,

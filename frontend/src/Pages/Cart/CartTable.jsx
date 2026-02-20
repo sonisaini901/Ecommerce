@@ -19,6 +19,8 @@ const CartTable = () => {
         enqueueSnackbar("Product Removed From Cart", { variant: "success" });
     }
 
+    console.log(cartItems)
+
     return(
         <div className="cart_table_block">
             {cartItems && cartItems.length >= 0 && cartItems.map((item,i) => (
