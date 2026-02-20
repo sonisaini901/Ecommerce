@@ -16,6 +16,7 @@ const CheckoutSuccess = () => {
     const navigate = useNavigate();
 
     const { order, error, loading } = useSelector((state) => state.orderDetails);
+    console.log(params.id)
     console.log(order)
 
     useEffect(() => {
@@ -31,7 +32,7 @@ const CheckoutSuccess = () => {
         <>
             <SEO title={"Order Summary - Forever Faster"} />
 
-            {!loading && order &&
+            {loading === false && order &&
             <div className="checkout_page_section section-padding">
                 <Container>
                     <Row>
