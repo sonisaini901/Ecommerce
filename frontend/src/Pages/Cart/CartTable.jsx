@@ -5,6 +5,7 @@ import { FaCheckCircle } from "react-icons/fa";
 import { Button } from "react-bootstrap";
 import { GoTrash } from "react-icons/go";
 import { useSnackbar } from "notistack";
+import placeholder from "../../assests/images/placeholder.png";
 
 const CartTable = () => {
 
@@ -20,11 +21,11 @@ const CartTable = () => {
 
     return(
         <div className="cart_table_block">
-            {cartItems && cartItems.map((item,i) => (
+            {cartItems && cartItems.length >= 0 && cartItems.map((item,i) => (
                 <div className="cart_table_item" key={i}>
                     <div className="cart_table_item_img">
                         <Link to={item.data.url}>
-                            <img src={item.data.images[0].url} alt={item.data.name} />
+                            <img src={item.data.images && item.data.images[0].url ? item.data.images[0].url : placeholder} alt={item.data.name} />
                         </Link>
                         {item.data.stock > 0 && <span className="product_stock"><FaCheckCircle /> In Stock</span>}
                     </div>
