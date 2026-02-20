@@ -31,7 +31,7 @@ const CheckoutSuccess = () => {
         <>
             <SEO title={"Order Summary - Forever Faster"} />
 
-            {!loading && 
+            {!loading && order &&
             <div className="checkout_page_section section-padding">
                 <Container>
                     <Row>
