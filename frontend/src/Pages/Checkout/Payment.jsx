@@ -193,7 +193,6 @@ const Payment = () => {
 
             } catch (err) {
                 paymentBtn.current.disabled = false;
-                console.log(err)
                 enqueueSnackbar("Processing Payment Failed!", { variant: "error" });
             }
         } else {

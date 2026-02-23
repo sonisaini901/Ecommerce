@@ -15,24 +15,30 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please enter product description"]
     },
-    highlights: [
+    details: [
         {
             type: String,
             required: false
         }
     ],
-    specifications: [
+    material: [
         {
-            title: {
-                type: String,
-                required: false
-            },
-            description: {
-                type: String,
-                required: false
-            }
+            type: String,
+            required: false
         }
     ],
+    story: {
+        type: String,
+    },
+    originCountry: {
+        type: String,
+    },
+    manufacturer: {
+        type: String,
+    },
+    importer: {
+        type: String,
+    },
     price: {
         type: Number,
         required: [true, "Please enter product selling price"]

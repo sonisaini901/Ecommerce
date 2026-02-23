@@ -115,13 +115,13 @@ const MyOrders = () => {
                                         {orderData.orderItems.map((item, i) => (
                                             <div className="cart_table_item" key={i}>
                                                 <div className="cart_table_item_img">
-                                                    <Link to={item.product.url}>
+                                                    <Link to={`/product/${item.product.url}`}>
                                                         <img src={item.product.images[0].url} alt={item.product.name} />
                                                     </Link>
                                                 </div>
                                                 <div className="cart_item_content">
                                                     <div className="cart_item_left_content">
-                                                        <Link to={item.product.url}>
+                                                        <Link to={`/product/${item.product.url}`}>
                                                             <h2 className="main_heading">{item.product.name}</h2>
                                                         </Link>
                                                         <p className="product_price">

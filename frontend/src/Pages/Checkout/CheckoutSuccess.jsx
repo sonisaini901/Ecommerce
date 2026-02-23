@@ -16,8 +16,6 @@ const CheckoutSuccess = () => {
     const navigate = useNavigate();
 
     const { order, error, loading } = useSelector((state) => state.orderDetails);
-    console.log(params.id)
-    console.log(order)
 
     useEffect(() => {
         if (error) {
@@ -73,14 +71,14 @@ const CheckoutSuccess = () => {
                                                     {order?.orderItems.map((item,i) => (
                                                         <div className="cart_table_item" key={i}>
                                                             <div className="cart_table_item_img">
-                                                                <Link to={item.product.url}>
+                                                                <Link to={`/product/${item.product.url}`}>
                                                                     <img src={item.product.images[0].url} alt={item.product.name} />
                                                                 </Link>
                                                                 {item.product.stock > 0 && <span className="product_stock"><FaCheckCircle /> In Stock</span>}
                                                             </div>
                                                             <div className="cart_item_content">
                                                                 <div className="cart_item_left_content">
-                                                                    <Link to={item.product.url}>
+                                                                    <Link to={`/product/${item.product.url}`}>
                                                                         <h2 className="main_heading">{item.product.name}</h2>
                                                                     </Link>
                                                                     <p><b>Quantity:</b> {item.quantity}</p>

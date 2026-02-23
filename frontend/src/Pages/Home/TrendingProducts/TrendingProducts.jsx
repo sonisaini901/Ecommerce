@@ -56,7 +56,6 @@ const TrendingProducts = () => {
             enqueueSnackbar("Maximum Order Quantity", { variant: "warning" });
             return;
         };
-        console.log(id)
         dispatch(addItemsToCart(id, quantity));
         enqueueSnackbar("Product Added To Cart", { variant: "success" });
     }
@@ -145,7 +144,7 @@ const TrendingProducts = () => {
                                 const itemWishlist = wishlists && wishlists.some((i) => i.product._id === item._id);
                                 return(
                                     <div className="slide products_slides" key={i}>
-                                        <Link to={item.url} className="products_slider_item">
+                                        <Link to={`/product/${item.url}`} className="products_slider_item">
                                             <div className="product_slider_image">
                                                 <img src={item.images && item.images[0].url} alt={item.name} className="product_slider_img" />
 

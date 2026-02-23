@@ -23,6 +23,7 @@ import {loadStripe} from '@stripe/stripe-js';
 import {
   Elements
 } from '@stripe/react-stripe-js';
+import ProductDetails from './Pages/ProductDetails/ProductDetails';
 
 function App() {
 
@@ -53,6 +54,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/password/forgot" element={<ForgotPassword />} />
           <Route path="/password/reset/:token" element={<ResetPassword />} />
+          <Route path="/product/:url" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/checkout/payment" element={

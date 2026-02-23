@@ -16,7 +16,7 @@ exports.getProducts = asyncErrorHandler(async (req, res, next) => {
 // Get Product Details
 exports.getProductDetails = asyncErrorHandler(async (req, res, next) => {
 
-    const product = await Product.find({ url: req.params.url });
+    const product = await Product.findOne({ url: req.params.url });
 
     if (!product) {
         return next(new ErrorHandler("Product Not Found", 404));
