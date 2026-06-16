@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.ed0fa900.css",
-    "main.js": "/static/js/main.0667d209.js",
+    "main.js": "/static/js/main.9d5fab67.js",
     "static/js/453.03346f77.chunk.js": "/static/js/453.03346f77.chunk.js",
     "static/media/travel_style.webp": "/static/media/travel_style.5bc065114cc2ff967324.webp",
     "static/media/running_store.webp": "/static/media/running_store.28698f43903d9c73acbc.webp",
@@ -17,7 +17,6 @@
     "static/media/slide1.webp": "/static/media/slide1.09282d9265753e36082a.webp",
     "static/media/football.webp": "/static/media/football.ed50c06bfec6f9faab87.webp",
     "static/media/Velocity-NITRO-4.webp": "/static/media/Velocity-NITRO-4.15bed19d012d562eb20f.webp",
-    "static/media/shoes.webp": "/static/media/shoes.fb635807bcede81e2d2e.webp",
     "static/media/Lookbook2.webp": "/static/media/Lookbook2.7090d4d26dee299ae0a7.webp",
     "static/media/basketball.webp": "/static/media/basketball.bcd0867105ea2e5a9f8b.webp",
     "static/media/banner-mobile.webp": "/static/media/banner-mobile.50ec5c93e3a684cfa32f.webp",
@@ -33,11 +32,11 @@
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
     "main.ed0fa900.css.map": "/static/css/main.ed0fa900.css.map",
-    "main.0667d209.js.map": "/static/js/main.0667d209.js.map",
+    "main.9d5fab67.js.map": "/static/js/main.9d5fab67.js.map",
     "453.03346f77.chunk.js.map": "/static/js/453.03346f77.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ed0fa900.css",
-    "static/js/main.0667d209.js"
+    "static/js/main.9d5fab67.js"
   ]
 }

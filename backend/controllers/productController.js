@@ -1,11 +1,20 @@
 const asyncErrorHandler = require('../middlewares/asyncErrorHandler');
 const Product = require('../models/productModel');
 const ErrorHandler = require('../utils/errorHandler');
+const SearchFeatures = require('../utils/searchFeatures');
 const cloudinary = require('cloudinary');
 
 // Get All Products ---Product Sliders
 exports.getProducts = asyncErrorHandler(async (req, res, next) => {
-    const products = await Product.find();
+    //const products = await Product.find();
+
+    const searchFeature = new SearchFeatures(Product.find(), req.query)
+        .search()
+        .filter();
+
+    let products = await searchFeature.query;
+
+    products = await searchFeature.query.clone();
 
     res.status(200).json({
         success: true,

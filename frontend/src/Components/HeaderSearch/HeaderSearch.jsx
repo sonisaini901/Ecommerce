@@ -3,8 +3,8 @@ import "./HeaderSearch.css";
 import { IoMdClose } from "react-icons/io";
 import { IoSearchOutline } from "react-icons/io5";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import shoes from "../../assests/images/home/shoes.webp";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const searchLists = [
     {
@@ -29,43 +29,28 @@ const searchLists = [
     }
 ]
 
-const products = [
-    {
-        image: shoes,
-        title: "Softride Frequence Street Running Shoes",
-        price: "₹3,150",
-        baseprice: "₹6,999",
-        link: "/",
-    },
-    {
-        image: shoes,
-        title: "Softride Frequence Street Running Shoes",
-        price: "₹3,150",
-        baseprice: "₹6,999",
-        link: "/",
-    },
-    {
-        image: shoes,
-        title: "Softride Frequence Street Running Shoes",
-        price: "₹3,150",
-        baseprice: "₹6,999",
-        link: "/",
-    },
-    {
-        image: shoes,
-        title: "Softride Frequence Street Running Shoes",
-        price: "₹3,150",
-        baseprice: "₹6,999",
-        link: "/",
-    }
-]
-
 const HeaderSearch = ({show, onClose}) => {
 
     const [search, setSearch] = useState("");
+    const { products } = useSelector((state) => state.products);
+
+    const navigate = useNavigate();
 
     const handleSearchSubmit = (e) => {
         e.preventDefault();
+
+        if(search.trim()){
+            navigate(`/products/${search}`)
+        } else {
+            navigate('/products');
+        }
+
+        resetSearchForm();
+    }
+
+    const resetSearchForm = () => {
+        onClose();
+        setSearch("");
     }
 
     return(
@@ -115,15 +100,15 @@ const HeaderSearch = ({show, onClose}) => {
                         <div className="flex-2">
                             <h2 className="search_result_heading">Suggested Products</h2>
                             <ul className="suggested_products">
-                                {products.map((item,i) => (
+                                {products.slice(0, 4).map((item,i) => (
                                     <li key={i} className="suggested_products_item">
-                                        <Link to={item.link}>
-                                            <img src={item.image} alt={item.title} className="suggested_product_image" />
+                                        <Link to={`/product/${item.url}`}>
+                                            <img src={item.images && item.images[0].url} alt={item.name} className="suggested_product_image" />
                                             <div className="suggested_product_content">
-                                                <p className="suggested_product_title">{item.title}</p>
+                                                <p className="suggested_product_title">{item.name}</p>
                                                 <p className="product_price">
-                                                    <span>{item.price}</span>
-                                                    {item.baseprice && <span className="base">{item.baseprice}</span>}
+                                                    <span>₹{item.cuttedPrice}</span>
+                                                    {item.price && <span className="base">₹{item.price}</span>}
                                                 </p>
                                             </div>
                                         </Link> 
