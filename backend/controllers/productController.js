@@ -4,18 +4,35 @@ const ErrorHandler = require('../utils/errorHandler');
 const SearchFeatures = require('../utils/searchFeatures');
 const cloudinary = require('cloudinary');
 
-// Get All Products ---Product Sliders
+// Get All Products with pagination and search
 exports.getProducts = asyncErrorHandler(async (req, res, next) => {
-    //const products = await Product.find();
+    const resultPerPage = 12;
+    const productsCount = await Product.countDocuments();
+    // console.log(req.query);
 
     const searchFeature = new SearchFeatures(Product.find(), req.query)
         .search()
         .filter();
 
     let products = await searchFeature.query;
+    let filteredProductsCount = products.length;
+
+    searchFeature.pagination(resultPerPage);
 
     products = await searchFeature.query.clone();
 
+    res.status(200).json({
+        success: true,
+        products,
+        productsCount,
+        resultPerPage,
+        filteredProductsCount,
+    });
+});
+
+// Get All products
+exports.getAllProducts = asyncErrorHandler(async (req, res, next) => {
+    const products = await Product.find();
     res.status(200).json({
         success: true,
         products,
